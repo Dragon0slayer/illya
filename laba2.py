@@ -1,0 +1,20 @@
+match = (22,45,67,12,46,84,4,7,9,10)
+text = ("собака","кіт","число","вірш","код","яблуко","альфа","барвінок","асфальт","щука")
+
+match2=sorted(match)
+text2=sorted(text)
+sort_list= match2+text2
+
+match_cratne2 = [i for i in match2 if i%2 ==0 ]
+text_caps= [a.upper() for a in text2]
+print(sort_list)
+print(match_cratne2)
+print(text_caps)
+
+titled_words= []
+for word in text:
+
+
+    titled_words.append(word.title())
+
+print(titled_words)

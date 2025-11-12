@@ -1,29 +1,53 @@
-def format_price(prase:float) -> str:
+def format_price(prase: float) -> str:
     return f"ціна: {prase:.2f} грн"
 
 
 def check_availability(*items, store: dict) -> dict:
-    return {item: (item in store) for item in items}
+    return {
+        item: (item in store)
+        for item in items
+    }
 
 
 def make_order(order: list, store: dict):
-    unavailable = [item for item in order if item not in store]
+    unavailable = [
+        item
+        for item in order
+        if item not in store
+    ]
+
     if unavailable:
-        print("Замовлення неможливе! Немає в наявності:",", ".join(unavailable))
+        print(
+            "Замовлення неможливе! Немає в наявності:",
+            ", ".join(unavailable)
+        )
         return
 
+    total_price = sum(
+        store[item]
+        for item in order
+    )
 
-    total_price = sum(store[item] for item in order)
     while True:
-        choice = input("Оберіть опцію (1 - переглянути ціну, 2 - купити): ")
+        choice = input(
+            "Оберіть опцію (1 - переглянути ціну, 2 - купити): "
+        )
+
         if choice == "1":
-            print("Вартість замовлення:", format_price(total_price))
+            print(
+                "Вартість замовлення:",
+                format_price(total_price)
+            )
+
         elif choice == "2":
-            print("Ви купили товари на суму:", format_price(total_price))
+            print(
+                "Ви купили товари на суму:",
+                format_price(total_price)
+            )
             break
+
         else:
             print("Невірний вибір, спробуйте ще раз.")
-
 
 def main():
     store = {

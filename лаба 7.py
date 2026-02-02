@@ -26,9 +26,11 @@ class Calcplus(Calculator):
         return self.number1*self.number3
 
     def sum(self):
-        return self.number1 +self.number2+self.number3+self
+        return self.number1 +self.number2+self.number3
+        
 
 a = Calculator(12, 23,12)
 print(a.subtraction())
+
 
 
